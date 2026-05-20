@@ -1,0 +1,27 @@
+services:
+  - type: worker
+    name: file-sharing-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python3 main.py
+    envVars:
+      - key: TG_BOT_TOKEN
+        sync: false
+      - key: APP_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      - key: CHANNEL_ID
+        sync: false
+      - key: OWNER_ID
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: DATABASE_NAME
+        value: filesharexbot
+      - key: FORCE_SUB_CHANNEL
+        value: "0"
+      - key: PORT
+        value: "8080"
+      - key: TG_BOT_WORKERS
+        value: "4"
